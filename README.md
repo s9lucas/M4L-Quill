@@ -9,7 +9,7 @@ A rich text editor using [Quill.js](https://github.com/slab/quill) for Ableton L
     - [https://cdn.jsdelivr.net/npm/quill@2/dist/quill.snow.css](https://cdn.jsdelivr.net/npm/quill@2/dist/quill.snow.css)
   * Drag the M4L-Quill.amxd device into your Live Set on a MIDI track.
 
-If the Quill links aren't working, check the Quickstart selection on the [Quill.js repo page](https://github.com/slab/quill?tab=readme-ov-file#quickstart).
+If the Quill links aren't working, check the [Quickstart section on the Quill.js repo page](https://github.com/slab/quill?tab=readme-ov-file#quickstart).
 
 ## Usage Notes
  * The OPEN toggle displays the M4L-Quill window.
