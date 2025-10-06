@@ -11,13 +11,20 @@ A rich text editor using [Quill.js](https://github.com/slab/quill) for Ableton L
 
 If the Quill links aren't working, check the [Quickstart section on the Quill.js repo page](https://github.com/slab/quill?tab=readme-ov-file#quickstart).
 
+## How it works
+ * M4L-Quill.amxd is a Max for Live device you can insert into an Ableton Live set.
+ * m4l.quill.html is a web page loaded by the [jweb] object. This imports the other files, initializes the HTML elements, and contains the JS functions for initializing Quill and communicating with Max.
+ * m4l.quill.css has some basic style customizations.
+ * quill.js is the Quill library file that actually runs the editor.
+ * quill.snow.css is one of the default Quill stylesheets.
+
 ## Usage Notes
  * The OPEN toggle displays the M4L-Quill window.
  * The GET Button moves the M4L-Quill window to the current cursor location. This is useful if the M4L-Quill window has somehow ended up offscreen, which may happen if you change display arrangements.
  * The Toolbar toggle shows/hides the formatting toolbar in the M4L-Quill window.
  * The "+" toggle shows/hides some advanced formatting options on the toolbar. These are probably things you don't need or may not work consistently.
  * The "border" and "background" buttons let you customize the RGB color of the M4L-Quill window. This may be useful if you have multiple M4L-Quill windows.
- * The "window title" [textedit] 
+ * The "window title" [textedit] customizes the popup window's title bar. This may be useful if you have multiple M4L-Quill windows.
 
 ## Special Considerations
  * You should be able to copy/paste rich text freely into and out of the M4L-Quill window. Since M4L-Quill doesn't have a save/load file function, this is especially useful for copying into an external rich text editor to save.
