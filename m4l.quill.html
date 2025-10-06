@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Full Editor - Quill Rich Text Editor</title>
+  <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="language" content="english">
+<meta name="viewport" content="width=device-width">
+
+<link rel="stylesheet" href="./quill.snow.css" />
+<link rel="stylesheet" href="./m4l.quill.css" />
+
+</head>
+<body>
+
+<div id="standalone-container">
+  <div id="toolbar">
+    <span class="ql-formats">
+      <select class="ql-font"></select>
+      <select class="ql-size"></select>
+    </span>
+    <span class="ql-formats">
+      <button class="ql-bold"></button>
+      <button class="ql-italic"></button>
+      <button class="ql-underline"></button>
+      <button class="ql-strike"></button>
+    </span>
+    <span class="ql-formats">
+      <select class="ql-color"></select>
+      <select class="ql-background"></select>
+    </span>
+    <span class="ql-formats">
+      <button class="ql-script" value="sub"></button>
+      <button class="ql-script" value="super"></button>
+    </span>
+    <span class="ql-formats ">
+      <button class="ql-header" value="1"></button>
+      <button class="ql-header" value="2"></button>
+      <button class="ql-blockquote"></button>
+      <button class="ql-code-block"></button>
+    </span>
+    <span class="ql-formats">
+      <button class="ql-list" value="ordered"></button>
+      <button class="ql-list" value="bullet"></button>
+      <button class="ql-indent" value="-1"></button>
+      <button class="ql-indent" value="+1"></button>
+    </span>
+    <span class="ql-formats">
+      <button class="ql-direction" value="rtl"></button>
+      <select class="ql-align"></select>
+    </span>
+    <span class="ql-formats ">
+      <button class="ql-link"></button>
+      <button class="ql-image"></button>
+      <button class="ql-video"></button>
+      <button class="ql-formula"></button>
+    </span>
+    <span class="ql-formats">
+      <button class="ql-clean"></button>
+    </span>
+  </div>
+  <div id="editor"></div>
+</div>
+
+<script src="./quill.js"></script>
+
+<script>
+
+
+  const quill = new Quill('#editor', { //initialize Quill editor
+    modules: {
+      formula: false,
+      syntax: false,
+      toolbar: '#toolbar'
+    },
+    placeholder: 'Enter your text here...',
+    theme: 'snow'
+  });
+
+  var elementArray = document.getElementsByClassName('ql-extras'); //set extras to default hidden
+    for(var i = 0; i < elementArray.length; i++) {
+      elementArray[i].style['display'] = 'none';
+    }
+
+  window.max.bindInlet('fillQuill', function(x) { //fill the Quill with the saved HTML
+    xcheck1 = x.substring(0,1);
+    if (xcheck1 == "\"") {
+      x = x.substring(1); //remove leading quote
+    }
+    xcheck2 = x.substring(x.length-1, x.length)
+    if (xcheck2 == "\"") {
+      x = x.substring(0, x.length - 1); //remove trailing quote
+    }
+    quill.root.innerHTML = x;
+    //quill.clipboard.dangerouslyPasteHTML(0, x);
+  });
+
+  window.max.bindInlet('modifyIdStyle', function(x,y,z) { //update the style of an element by Id
+    document.getElementById(x).style[y] = z;
+  });
+
+  window.max.bindInlet('modifyClassStyle', function(x,y,z) { //update the style of all elements by class
+    var elementArray = document.getElementsByClassName(x);
+    for(var i = 0; i < elementArray.length; i++) {
+      elementArray[i].style[y] = z;
+    }
+  });
+
+  window.max.bindInlet('modifyTagStyle', function(x,y,z) { //update the style first element with a tag, probably for <html> or <body>
+    document.getElementsByTag(x)[0].style[y] = z;
+  });
+
+  window.max.bindInlet('modifyBackground', function(x,y,z) { //update the background color
+    document.body.style['backgroundColor'] = 'rgb(' + [x*255,y*255,z*255].join(',') + ')';
+
+  });
+
+  quill.on('text-change', function(delta, oldDelta, source) {
+  if (source == 'api') {
+    //console.log("An API call triggered this change.");
+  } else if (source == 'user') {
+    dumpQuill();
+  }
+});
+
+  function dumpQuill() { //output the contents of Quill through the [jweb] object
+    var delta = quill.root.innerHTML;
+    window.max.outlet(delta);
+  }
+</script>
+
+
+</body>
+</html>

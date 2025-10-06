@@ -1,0 +1,49 @@
+body, html {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+}
+
+#standalone-container {
+    height: 100%;
+    overflow-y: hidden;
+}
+
+#toolbar {
+    background-color: #cccccc;
+}
+
+#editor {
+    height:10em;
+    min-height:100%;
+    overflow-y:auto;
+    border:0 !important;
+}
+
+.ql-editor {
+    min-height: 100%;
+    height: auto;
+}
+
+/*make toolbar extras default to hidden*/
+.ql-formats button.ql-blockquote {
+    display: none;
+}
+.ql-formats button.ql-code-block {
+    display: none;
+}
+.ql-formats button.ql-link {
+    display: none;
+}
+.ql-formats button.ql-image {
+    display: none;
+}
+.ql-formats button.ql-video {
+    display: none;
+}
+.ql-formats button.ql-formula {
+    display: none;
+}    
+.ql-formats button.ql-clean {
+    display: none;
+}

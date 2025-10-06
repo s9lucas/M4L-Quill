@@ -1,4 +1,4 @@
 # ignore downloaded Quill files
 # you can find links to these here at https://github.com/slab/quill?tab=readme-ov-file#quickstart
 quill.js
-quill.snow.js
+quill.snow.css
