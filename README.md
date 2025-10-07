@@ -4,9 +4,9 @@ A rich text editor using [Quill.js](https://github.com/slab/quill) for Ableton L
 Tested with:\
 Quill.js == 2.0.3\
 Ableton Live == 12.2.5\
-Max == 9.0.7
-
-Windows 10
+Max == 9.0.7\
+\
+Windows 10\
 MacOS 14.8
 
 <img src="./M4L-Quill_screenshot.jpg" width="400px" alt="M4L-Quill Screenshot"></img>
