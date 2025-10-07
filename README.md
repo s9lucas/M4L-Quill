@@ -6,7 +6,7 @@ Quill.js == 2.0.3\
 Ableton Live == 12.2.5\
 Max == 9.0.7
 
-<img src="./M4L-Quill_screenshot.jpg" width="200px" alt="M4L-Quill Screenshot"></img>
+<img src="./M4L-Quill_screenshot.jpg" width="400px" alt="M4L-Quill Screenshot"></img>
 
 ## Installation
   * Clone/unzip the repo into your Ableton User Library.
