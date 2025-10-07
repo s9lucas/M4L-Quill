@@ -1,3 +1,5 @@
+![M4L-Quill Screenshot](./M4L-Quill_screenshot.jpg)
+
 # M4L-Quill
 A rich text editor using [Quill.js](https://github.com/slab/quill) for Ableton Live / Max for Live. This can be used for saving and viewing text notes within your Live Set
 
